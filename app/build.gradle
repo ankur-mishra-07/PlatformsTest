@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.platformstest"
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        dataBinding = true
+        // for view binding :
+        // viewBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //view
+    implementation "androidx.appcompat:appcompat:$appCompat"
+    implementation "androidx.core:core-ktx:$core"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintVer"
+    implementation "com.google.android.material:material:$materialVer"
+    implementation "androidx.cardview:cardview:$cardview_version"
+    implementation "androidx.recyclerview:recyclerview:$recycleVersion"
+
+    //test
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    testImplementation "junit:junit:$junitVer"
+    androidTestImplementation "androidx.test:runner:$testVer"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVer"
+
+    //annotation
+    compileOnly "javax.annotation:jsr250-api:$javaAnnotatonVer"
+
+    //okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
+
+    //dagger
+    kapt "com.google.dagger:dagger-android-processor:$daggerVer"
+    kapt "com.google.dagger:dagger-compiler:$daggerVer"
+    implementation "com.google.dagger:dagger-android-support:$daggerVer"
+
+    // Coroutines for asynchronous calls
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine"
+
+
+    /* LiveData lib*/
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVer"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVer"
+
+    // Room components
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
+
+    // glide for image
+    implementation "com.github.bumptech.glide:glide:4.9.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
+
+}
