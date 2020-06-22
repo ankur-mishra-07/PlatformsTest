@@ -1,7 +1,7 @@
 package com.platformstest.common
 
 object AppConstants {
-    const val cloudBaseUrl: String = "https://api.github.com/"
+    const val cloudBaseUrl: String = "https://dl.dropboxusercontent.com/"
     const val Success = 200
 }
 

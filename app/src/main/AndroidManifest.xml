@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".AppBase"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/netwrk_security_config"
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.BaseActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

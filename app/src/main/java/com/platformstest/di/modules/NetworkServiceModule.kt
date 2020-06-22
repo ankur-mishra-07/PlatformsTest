@@ -1,8 +1,7 @@
-package com.base.zuinkfleet.di.modules
+package com.platformstest.di.modules
 
 import com.platformstest.data.services.RestDataService
 import com.platformstest.di.annotations.ApplicationScope
-import com.platformstest.di.modules.NetworkModule
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

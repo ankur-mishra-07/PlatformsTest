@@ -1,3 +1,13 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="cardview_margin">5dp</dimen>
+    <dimen name="iv_dimen">80dp</dimen>
+    <dimen name="iv_margin">8dp</dimen>
+    <dimen name="tv_title_width">0dp</dimen>
+    <dimen name="tv_margin">8dp</dimen>
+    <dimen name="tv_title_size">18sp</dimen>
+    <dimen name="ab_title_size">25sp</dimen>
+    <dimen name="tv_margin_desc">4dp</dimen>
+    <dimen name="tv_desc_size">16sp</dimen>
+    <dimen name="tb_margin">15dp</dimen>
 </resources>

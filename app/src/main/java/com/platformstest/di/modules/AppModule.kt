@@ -2,7 +2,6 @@ package  com.platformstest.di.modules
 
 import android.app.Application
 import android.content.Context
-import com.base.zuinkfleet.di.modules.NetworkServiceModule
 import com.platformstest.di.annotations.ApplicationScope
 import dagger.Module
 import dagger.Provides

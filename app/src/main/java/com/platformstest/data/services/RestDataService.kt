@@ -4,6 +4,6 @@ import retrofit2.http.GET
 
 
 interface RestDataService {
-    @GET("repositories")
-    suspend fun getUserData(): List<FetcherModelItem>
+    @GET("s/2iodh4vg0eortkl/facts.json")
+    suspend fun getData(): FetcherModelItem
 }

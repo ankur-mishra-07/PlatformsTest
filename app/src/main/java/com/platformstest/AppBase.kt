@@ -16,11 +16,11 @@ val sPreference: SharedPreference by lazy {
 }
 
 open class AppBase : MultiDexApplication(), HasActivityInjector {
-    override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
+    override fun activityInjector(): AndroidInjector<Activity> = this.dispatchingAndroidInjector!!
 
 
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    @set:Inject
+    internal var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>? = null
     private lateinit var appComponent: AppComponent
 
     companion object {

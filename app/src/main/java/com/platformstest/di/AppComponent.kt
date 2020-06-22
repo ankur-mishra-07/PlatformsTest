@@ -6,6 +6,7 @@ import com.platformstest.di.annotations.ApplicationScope
 import com.platformstest.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
 /**
@@ -13,10 +14,10 @@ import dagger.android.support.AndroidSupportInjectionModule
  */
 @ApplicationScope
 @Component(
-    modules = [AndroidSupportInjectionModule::class, AppModule::class, ActivityBuilderModule::class, FragmentBuildersModule::class, ViewModelModule::class, PerssistanceModule::class]
+    modules = [AndroidSupportInjectionModule::class, AppModule::class, ActivityBuilderModule::class, FragmentBuildersModule::class, ViewModelModule::class]
 )
-interface AppComponent {
-    fun inject(mApplication: AppBase)
+interface AppComponent :AndroidInjector<AppBase>{
+    override fun inject(mApplication: AppBase)
 
     @Component.Builder
     interface Builder {
