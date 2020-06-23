@@ -41,7 +41,6 @@ class NetworkModule {
             .readTimeout(30, TimeUnit.SECONDS)
             .connectTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(provideMockInterceptor())
             .build()
     }
 
