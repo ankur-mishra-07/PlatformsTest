@@ -1,5 +1,6 @@
 package com.platformstest.data.viewmodel
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.platformstest.common.*
@@ -9,7 +10,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//Viewmodel class for making api call and returning data to ui
+// Viewmodel class for making api call and returning data to ui
 class FetcherViewModel @Inject constructor(
     private val dataRepository: DataRepositry
 ) : BaseViewModel() {
@@ -24,8 +25,13 @@ class FetcherViewModel @Inject constructor(
         mGetPostData.value = NetworkError(throwable.message)
     }
 
+    fun setState(loading: ViewState<FetcherModelItem>) {
+        mGetPostData.value = loading
+    }
+
+    @VisibleForTesting
     fun getServerPost() {
-        mGetPostData.value = Loading
+        setState(Loading)
         val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
             onError(exception)
         }
@@ -35,9 +41,9 @@ class FetcherViewModel @Inject constructor(
             val userResponseData = dataRepository.getData()
             // Return the result on main thread via Dispatchers.Main
             if (userResponseData != null) {
-                mGetPostData.value = Success(userResponseData)
+                setState(Success(userResponseData))
             } else {
-                mGetPostData.value = NetworkError("Not a valid response")
+                setState(NetworkError("Not a valid response"))
             }
         }
     }
