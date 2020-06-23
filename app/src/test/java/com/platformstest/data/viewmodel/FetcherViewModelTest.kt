@@ -8,6 +8,7 @@ import com.platformstest.common.Success
 import com.platformstest.common.ViewState
 import com.platformstest.data.models.FetcherModelItem
 import com.platformstest.data.repositry.DataRepositry
+import com.platformstest.data.services.RestDataService
 import junit.framework.Assert.assertNotNull
 import org.junit.Assert
 import org.junit.Before
@@ -28,9 +29,11 @@ class FetcherViewModelTest {
     @JvmField
     val rule = InstantTaskExecutorRule()
 
+    lateinit var dataRepositry: DataRepositry
+
     @Mock
     @Inject
-    lateinit var dataRepositry: DataRepositry
+    lateinit var mService: RestDataService
 
     @Mock
     private lateinit var mockObserver: Observer<ViewState<FetcherModelItem>>
@@ -39,6 +42,7 @@ class FetcherViewModelTest {
 
     @Before
     fun setUp() {
+        dataRepositry = DataRepositry(mService = mService)
         mViewModel = FetcherViewModel(dataRepositry)
     }
 

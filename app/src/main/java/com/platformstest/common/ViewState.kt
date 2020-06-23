@@ -1,5 +1,6 @@
 package com.platformstest.common
 
+// To maintain the different state of API call in live data
 sealed class ViewState<out T : Any>
 data class NetworkError(
     val message: String?,

@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+//Viewmodel class for making api call and returning data to ui
 class FetcherViewModel @Inject constructor(
     private val dataRepository: DataRepositry
 ) : BaseViewModel() {
@@ -30,7 +31,7 @@ class FetcherViewModel @Inject constructor(
         }
         // viewModelScope launch the new coroutine on Main Dispatcher internally
         viewModelScope.launch(coroutineExceptionHandler) {
-            // Get User Post Data
+            // Get Post Data
             val userResponseData = dataRepository.getData()
             // Return the result on main thread via Dispatchers.Main
             if (userResponseData != null) {

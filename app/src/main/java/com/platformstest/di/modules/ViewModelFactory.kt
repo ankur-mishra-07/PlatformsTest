@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.platformstest.di.annotations.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Provider
-
+/**
+ * For creating view model init
+ */
 @ApplicationScope
 class ViewModelFactory @Inject constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>) :
     ViewModelProvider.Factory {

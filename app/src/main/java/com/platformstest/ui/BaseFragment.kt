@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 
 /**
- * A simple [Fragment] baseclass.
+ * Base Fragment to be extended by all fragment
  */
 
 open class BaseFragment : Fragment(), Injectable {

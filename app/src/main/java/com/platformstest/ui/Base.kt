@@ -8,7 +8,9 @@ import com.platformstest.common.MyObserver
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
-
+/**
+ * Base class to be extended by all activities
+ */
 open class Base : AppCompatActivity(), HasSupportFragmentInjector, LifecycleObserver {
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 

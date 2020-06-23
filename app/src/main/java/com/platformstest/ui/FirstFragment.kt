@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +20,7 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_first.*
 
 /**
- * A simple [Fragment]
+ * Fragment with list of data
  */
 class FirstFragment : BaseFragment() {
 
@@ -53,9 +52,11 @@ class FirstFragment : BaseFragment() {
         peopleDataRecyclerView.setHasFixedSize(true)
         mAdapter = PostAdapter()
         peopleDataRecyclerView.adapter = mAdapter
+        //making the network call
         if (ConnectivityUtil.isConnected(requireContext())) {
             mFetcherModel.getServerPost()
         }
+        //registering the live data call back
         mFetcherModel.getPostLiveData().observe(requireActivity(), Observer { onDataReceived(it) })
         fab.setOnClickListener {
             if (ConnectivityUtil.isConnected(requireContext())) {
@@ -64,6 +65,7 @@ class FirstFragment : BaseFragment() {
         }
     }
 
+    //updating the ui with live data callback
     private fun onDataReceived(viewState: ViewState<FetcherModelItem>?) {
         when (viewState) {
             is Loading -> setProgress(true)
