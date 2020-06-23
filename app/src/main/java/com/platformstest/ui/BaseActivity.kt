@@ -11,7 +11,7 @@ import com.platformstest.data.viewmodel.FetcherViewModel
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class BaseActivity : Base() {
+public class BaseActivity : Base() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)

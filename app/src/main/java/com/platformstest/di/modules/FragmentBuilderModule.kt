@@ -15,9 +15,6 @@ abstract class FragmentBuildersModule {
     abstract fun contributeFirstFragment(): FirstFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeSecondFragment(): SecondFragment
-
-    @ContributesAndroidInjector
     abstract fun contributeBaseFragment(): BaseFragment
 
 }

@@ -48,10 +48,10 @@ class FirstFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        peopleDataRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        peopleDataRecyclerView.setHasFixedSize(true)
+        postDataRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        postDataRecyclerView.setHasFixedSize(true)
         mAdapter = PostAdapter()
-        peopleDataRecyclerView.adapter = mAdapter
+        postDataRecyclerView.adapter = mAdapter
         //making the network call
         if (ConnectivityUtil.isConnected(requireContext())) {
             mFetcherModel.getServerPost()

@@ -58,8 +58,13 @@ dependencies {
 
     //test
     testImplementation "junit:junit:$junitVer"
-    androidTestImplementation "androidx.test:runner:$testVer"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVer"
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.0.0'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation 'org.hamcrest:hamcrest-library:1.3'
 

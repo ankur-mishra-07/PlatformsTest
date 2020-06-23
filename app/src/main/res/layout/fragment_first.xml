@@ -23,7 +23,7 @@
 <!--            tools:text="John" />-->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/peopleDataRecyclerView"
+            android:id="@+id/postDataRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/transparent"
